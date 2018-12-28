@@ -21,4 +21,8 @@ class Entry(models.Model):
 
 	def __str__(self):
 		"""返回模型8的字符串表示"""
-		return self.text[:50] + "..."
+		show_text = self.text[:50]
+		"""文本长于50，结尾添加省略号"""
+		if len(self.text) >= 50:
+			show_text = show_text + "..."
+		return show_text
