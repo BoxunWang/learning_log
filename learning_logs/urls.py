@@ -7,6 +7,9 @@ from . import views
 urlpatterns = [
 	#index page
 	url(r'^$', views.index, name='index'),
+	#显示所有主题
+	url(r'^topics/$', views.topics, name='topics'),
+	url(r'^topics/(?P<topic_id>\d+)/$', views.topic, name='topic'),
 ]
 """
 	URL接收三个实参：
