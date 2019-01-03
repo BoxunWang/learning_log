@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 #包含项目中的应用程序的URL
 urlpatterns = [
-	url(r'^admin/', admin.site.urls),
+	url(r'^admin/', include(admin.site.urls)),
+	url(r'^users/', include('users.urls', namespace='users')),
 	url(r'', include('learning_logs.urls', namespace='learning_logs')),
 ]
