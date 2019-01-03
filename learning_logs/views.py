@@ -59,8 +59,8 @@ def edit_entry(request, entry_id):
 	else:
 		form = EntryForm(instance=entry, data=request.POST)
 		if form.is_valid():	#检查表单有效
-			form.dave()
+			form.save()
 			return HttpResponseRedirect(reverse('learning_logs:topic', args=[topic.id]))
 			#重定向网页到topic
 	context = {'entry':entry, 'topic':topic, 'form':form}
-	return render(requset, 'learning_logs/edit_entry.html', context)
+	return render(request, 'learning_logs/edit_entry.html', context)
