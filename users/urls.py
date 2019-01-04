@@ -9,5 +9,5 @@ urlpatterns = [
 	#注销页面
 	url(r'^logout/$', views.logout_view, name='logout'),
 	#注册页面
-	url(r'^/register$', views.register, name='register'),
+	url(r'^register/$', views.register, name='register'),
 ]
