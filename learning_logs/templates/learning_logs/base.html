@@ -1,3 +1,4 @@
+<!-- 基础网页 -->
 <p>
   <a href="{% url 'learning_logs:index' %}">Learning Log</a> - 
   <a href="{% url 'learning_logs:topics' %}">Topics</a> -
@@ -5,9 +6,10 @@
   <br />
   {% if user.is_authenticated %}
   <!-- is_authenticated属性，用户已登录True，否则False -->
-    ~~~ Hello, {{ user.username }} ~~~
+    ~~~ Hello, {{ user.username }}
+    <a href="{% url 'users:logout' %}">[logout]</a> ~~~
   {% else %}
-    <a href="{% url 'users:login' %}">log in</a>
+    <a href="{% url 'users:login' %}">login</a>
   {% endif %}
 </p>
 
