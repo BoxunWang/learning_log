@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #第三方应用程序
+    'bootstrap3',
     #我的应用程序
     'learning_logs',
     'users'
@@ -124,3 +126,9 @@ STATIC_URL = '/static/'
 
 # My settings
 LOGIN_URL = '/users/login'
+
+# settings of django-bootstrap3
+# 让django-bootstrap3包含JavaScript库的JQuery（无需手工下载），以使用Bootstrap模板提供的交互式元素
+BOOTSTRAP3 = {
+    'include_jquery': True,
+}
