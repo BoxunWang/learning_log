@@ -132,3 +132,25 @@ LOGIN_URL = '/users/login'
 BOOTSTRAP3 = {
     'include_jquery': True,
 }
+
+# Heroku settings
+cwd = os.getcwd() #获取当前工作目录
+if cwd == '/app' or cwd[:4] == '/tmp':
+    #部署到Heroku（在线服务器）时为'/app'，本地开发环境时为'/tmp'
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+    } #Heroku使用PostgreSQL（比SQLite高级）
+
+    #让request.is_secure()承认X-Forwarded-Proto头
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    #支持所有的主机头 (host header)
+    ALLOWED_HOSTS = ['*']
+
+    #静态资产配置
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
